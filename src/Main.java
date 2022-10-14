@@ -30,7 +30,6 @@ public class Main {
 //        System.out.println
 //                ("The area of a circle with radius: [" + a + "] is " + (3.14 * a * a));
 
-        double a = 8;
         double b = 3;
         double c = a / b;
         System.out.println(c);
