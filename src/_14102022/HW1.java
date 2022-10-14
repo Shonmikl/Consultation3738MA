@@ -27,12 +27,15 @@ public class HW1 {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final int START = 28800;
     private static final short CONSTANT = 60;
+    private static final byte START_WORK_HOUR = 9;
+    private static final byte WORK_DAY_LENGTH = 8;
 
-    private static void getResult(int hour, int minute) {
-        int sumMinutes = ((hour - 9) * CONSTANT) + minute;
-        int restHour = 8 - (hour - 9);
+    private static void getResult(int hour, int minutes) {
+        int hoursMinusNine = (hour - START_WORK_HOUR);
+        int sumMinutes = (hoursMinusNine * CONSTANT) + minutes;
+        int restHour = WORK_DAY_LENGTH - hoursMinusNine;
         int restMinutes = (START / CONSTANT) - sumMinutes;
-        int restSeconds = START - (((hour - 9) * 3600) + (minute * CONSTANT));
+        int restSeconds = START - ((hoursMinusNine * CONSTANT^2) + (minutes * CONSTANT));
 
         System.out.println("Rest hours are: [" + restHour + "] hours");
         System.out.println("Rest minutes are: [" + restMinutes + "] minutes");
@@ -40,12 +43,13 @@ public class HW1 {
     }
 
      static void input() {
+        System.out.println("We calculate hours, minutes and seconds until the end of the working day\n");
         int h;
         int m;
-        System.out.println("Please input hours.....");
+        System.out.println("Please input the current hour.....");
         h = SCANNER.nextInt();
-
-        System.out.println("Please input minutes.....");
+        System.out.println("**********************************");
+        System.out.println("Please input current minutes.....");
         m = SCANNER.nextInt();
 
         getResult(h, m);
