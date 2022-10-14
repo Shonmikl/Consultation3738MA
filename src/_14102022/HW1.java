@@ -24,32 +24,29 @@ import java.util.Scanner;
  * 4. Рефакторинг
  */
 public class HW1 {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static final int START = 28800;
     private static final short CONSTANT = 60;
-    private static int restHour;
-    private static int restMinutes;
-    private static int restSeconds;
 
     private static void getResult(int hour, int minute) {
         int sumMinutes = ((hour - 9) * CONSTANT) + minute;
-        restHour = 8 - (hour - 9);
-        restMinutes = (START / CONSTANT) - sumMinutes;
-        restSeconds = START - (((hour - 9) * 3600) + (minute * CONSTANT));
+        int restHour = 8 - (hour - 9);
+        int restMinutes = (START / CONSTANT) - sumMinutes;
+        int restSeconds = START - (((hour - 9) * 3600) + (minute * CONSTANT));
 
-        System.out.println("Rest hours are: " + restHour);
-        System.out.println("Rest minutes are: " + restMinutes);
-        System.out.println("Rest seconds are: " + restSeconds);
+        System.out.println("Rest hours are: [" + restHour + "] hours");
+        System.out.println("Rest minutes are: [" + restMinutes + "] minutes");
+        System.out.println("Rest seconds are: [" + restSeconds + "] seconds");
     }
 
      static void input() {
         int h;
         int m;
         System.out.println("Please input hours.....");
-        h = scanner.nextInt();
+        h = SCANNER.nextInt();
 
         System.out.println("Please input minutes.....");
-        m = scanner.nextInt();
+        m = SCANNER.nextInt();
 
         getResult(h, m);
     }
