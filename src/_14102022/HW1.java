@@ -35,19 +35,20 @@ public class HW1 {
         int sumMinutes = (hoursMinusNine * CONSTANT) + minutes;
         int restHour = WORK_DAY_LENGTH - hoursMinusNine;
         int restMinutes = (START / CONSTANT) - sumMinutes;
-        int restSeconds = START - ((hoursMinusNine * CONSTANT^2) + (minutes * CONSTANT));
+        int restSeconds = START - ((hoursMinusNine * CONSTANT ^ 2) + (minutes * CONSTANT));
 
         System.out.println("Rest hours are: [" + restHour + "] hours");
         System.out.println("Rest minutes are: [" + restMinutes + "] minutes");
         System.out.println("Rest seconds are: [" + restSeconds + "] seconds");
     }
 
-     static void input() {
-        System.out.println("We calculate hours, minutes and seconds until the end of the working day\n");
+    static void input() {
+        System.out.println("We calculate hours, minutes and seconds until the end of the working day:\n");
         int h;
         int m;
         System.out.println("Please input the current hour.....");
         h = SCANNER.nextInt();
+
         System.out.println("**********************************");
         System.out.println("Please input current minutes.....");
         m = SCANNER.nextInt();
